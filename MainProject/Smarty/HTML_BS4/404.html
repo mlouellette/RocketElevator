@@ -29,58 +29,12 @@
 		<link href="assets/css/color_scheme/red.css" rel="stylesheet" type="text/css" id="color_scheme" />
 	</head>
 
-	<!--
-		AVAILABLE BODY CLASSES:
-		
-		smoothscroll 			= create a browser smooth scroll
-		enable-animation		= enable WOW animations
-
-		bg-grey					= grey background
-		grain-grey				= grey grain background
-		grain-blue				= blue grain background
-		grain-green				= green grain background
-		grain-blue				= blue grain background
-		grain-orange			= orange grain background
-		grain-yellow			= yellow grain background
-		
-		boxed 					= boxed layout
-		pattern1 ... patern11	= pattern background
-		menu-vertical-hide		= hidden, open on click
-		
-		BACKGROUND IMAGE [together with .boxed class]
-		data-background="assets/images/_smarty/boxed_background/1.jpg"
-	-->
 	<body class="smoothscroll enable-animation">
 
 		<!-- wrapper -->
 		<div id="wrapper">
 
-			<!-- 
-				AVAILABLE HEADER CLASSES
 
-				Default nav height: 96px
-				.header-md 		= 70px nav height
-				.header-sm 		= 60px nav height
-
-				.b-0 		= remove bottom border (only with transparent use)
-				.transparent	= transparent header
-				.translucent	= translucent header
-				.sticky			= sticky header
-				.static			= static header
-				.dark			= dark header
-				.bottom			= header on bottom
-				
-				shadow-before-1 = shadow 1 header top
-				shadow-after-1 	= shadow 1 header bottom
-				shadow-before-2 = shadow 2 header top
-				shadow-after-2 	= shadow 2 header bottom
-				shadow-before-3 = shadow 3 header top
-				shadow-after-3 	= shadow 3 header bottom
-
-				.clearfix		= required for mobile menu, do not remove!
-
-				Example Usage:  class="clearfix sticky header-sm transparent b-0"
-			-->
 			<div id="header" class="navbar-toggleable-md sticky header-md clearfix">
 
 				<!-- TOP NAV -->
@@ -141,7 +95,7 @@
 									</li>
 									
 									<li><!-- CONTACT -->
-										<a href="/Smarty/HTML_BS4/index.html#contact">
+										<a href="/Smarty/HTML_BS4/index-onepage-construction.html#contact">
 											CONTACT
 										</a>
 									</li>
@@ -157,37 +111,49 @@
 			</div>
 
 
-			<hr class="m-0" /><!-- 1px line separator -->
+			<hr class="m-0" />
 
+            <br>
 
-            <!-- Services -->
-			<section id="service">
-				<div class="container">
+			
 
-					<div class="row">
-						<div class="col-sm-7">
-							
-								<img class="img-fluid" src="/Smarty/HTML_BS4/demo_files/images/sean-pollock-PhYq704ffdA-unsplash.jpg" alt="img" />
-							</a>
+<center> 
+            <div class="row">
 
-						
-						</div>
+                
+                <div class="col-md-12 col-sm-7">
 
-						<div class="col-sm-5">
-							
-							<h3 class="mt-10">CORPORATE SERVICES</h3>
-							<p>We know you need your elevators, escalators, moving walks and other people transportation systems operating optimally at all times. That’s why across our global service and maintenance network, our top priority is ensuring the utmost system availability, efficiency and safety. Industry-leading knowledge, processes and tools enable us to deliver on this priority. So do our top notch technicians with their continuous training and comprehensive manufacturer-independent expertise.
+                    <h1 class="btn-danger">ERROR 404</h1>
 
-                                This is your guarantee of service excellence.</p>
-							
-						</div>
+                    <form class="col-md-5" action="php/contact.php" method="post" enctype="multipart/form-data">
+                        <fieldset>
+                            <input type="hidden" name="action" value="contact_send" />
 
-						
+                            <div class="row">
+                                 <div class="col-md-12 col-sm-7">
+                                        <h3>The page you requested can't be found.</h3>
+                                        
+                                    </div>   
+                                    
+                            </div>
 
+						   </div>
+                            
+
+                        </fieldset>
+
+                        
+                    </form>
+
+                </div>
+</center>
+                
+ 
 					</div>
 
 				</div>
 			</section>
+
 			<!-- /Services -->
 
 			<!-- CONTACT -->
@@ -207,31 +173,6 @@
 						<div class="col-md-8 col-sm-8">
 
 							<h3>Complete the <strong><em>form</em> below!</strong></h3>
-
-							
-							<!--
-								MESSAGES
-								
-									How it works?
-									The form data is posted to php/contact.php where the fields are verified!
-									php.contact.php will redirect back here and will add a hash to the end of the URL:
-										#alert_success 		= email sent
-										#alert_failed		= email not sent - internal server error (404 error or SMTP problem)
-										#alert_mandatory	= email not sent - required fields empty
-										Hashes are handled by assets/js/contact.js
-
-									Form data: required to be an array. Example:
-										contact[email][required]  WHERE: [email] = field name, [required] = only if this field is required (PHP will check this)
-										Also, add `required` to input fields if is a mandatory field. 
-										Example: <input required type="email" value="" class="form-control" name="contact[email][required]">
-
-									PLEASE NOTE: IF YOU WANT TO ADD OR REMOVE FIELDS (EXCEPT CAPTCHA), JUST EDIT THE HTML CODE, NO NEED TO EDIT php/contact.php or javascript
-												 ALL FIELDS ARE DETECTED DINAMICALY BY THE PHP
-
-									WARNING! Do not change the `email` and `name`!
-												contact[name][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-												contact[email][required] 	- should stay as it is because PHP is using it for AddReplyTo (phpmailer)
-							-->
 
 							<!-- Alert Success -->
 							<div id="alert_success" class="alert alert-success mb-30">
@@ -341,20 +282,6 @@
 
 							<h2>Visit Us</h2>
 
-							<!-- 
-							Available heights
-								h-100
-								h-150
-								h-200
-								h-250
-								h-300
-								h-350
-								h-400
-								h-450
-								h-500
-								h-550
-								h-600
-							-->
 							<div id="map2" class="h-400 grayscale"></div>
 
 							<hr />
@@ -373,8 +300,6 @@
 				</div>
 			</section>
 			<!-- /CONTACT -->
-
-
 
 
 			<!-- FOOTER -->
@@ -459,7 +384,7 @@
 		<script src="assets/plugins/jquery/jquery-3.3.1.min.js"></script>
 
 		<script src="assets/js/scripts.js"></script>
-		
+
 		<!-- REVOLUTION SLIDER -->
 		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
 		<script src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
@@ -474,6 +399,10 @@
 		-->
 		<script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
 		<script src="assets/plugins/gmaps.js"></script>
+        <script src="/Smarty/HTML_BS4/assets/js/interaction.js"></script>
+		<!-- jquery mask upload -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>
 		<script>
 
 			jQuery(document).ready(function(){
