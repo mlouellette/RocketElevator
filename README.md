@@ -7,4 +7,4 @@ Genesis 2 weeks project
 
 week 1 : Replace the html/css elements 
 
-week 2 : Quote form in Javascript
+week 2 : Quote form in Javascript and Jquery library
