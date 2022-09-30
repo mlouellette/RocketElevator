@@ -47,8 +47,8 @@
 						</button>
 
 						<!-- Logo -->
-						<a class="logo float-left" href="/Smarty/HTML_BS4/index.html">
-							<img src="/Smarty/HTML_BS4/demo_files/images/R2.png" alt="" />
+						<a class="logo float-left" href="index.html">
+							<img src="demo_files/images/R2.png" alt="" />
 						</a>
 
 						<!-- 
@@ -68,34 +68,34 @@
 								-->
 								<ul id="topMain" class="nav nav-pills nav-main nav-onepage">
 									<li class="active"><!-- HOME -->
-										<a href="/Smarty/HTML_BS4/index.html">
+										<a href="index.html">
 											HOME
 										</a>
 									</li>
 									<li><!-- SERVICES -->
-										<a href="/Smarty/HTML_BS4/index.html#services">
+										<a href="index.html#services">
 											SERVICES
 										</a>
 									</li>
 									<li><!-- WORK -->
-										<a href="/Smarty/HTML_BS4/index.html#work">
+										<a href="index.html#work">
 											WORK
 										</a>
 									</li>
 									<li><!-- NEWS -->
-										<a href="/Smarty/HTML_BS4/index.html#news">
+										<a href="index.html#news">
 											NEWS
 										</a>
 									</li>
 									
 									<li><!-- CLIENTS -->
-										<a href="/Smarty/HTML_BS4/index.html#clients">
+										<a href="index.html#clients">
 											CLIENTS
 										</a>
 									</li>
 									
 									<li><!-- CONTACT -->
-										<a href="/Smarty/HTML_BS4/index.html#contact">
+										<a href="index.html#contact">
 											CONTACT
 										</a>
 									</li>
@@ -143,12 +143,12 @@
                                     
                             </div>
 
-							<div class="row">
+							<div class="row radioSelect">
 								<div class="col-md-12 col-sm-7">
 									   <h3>Select product line</h3>
 									 
 								</div>   
-								<div class="col-md-3 radioSelect">
+								<div class="col-md-3">
 									   <input style="float:left;" type="radio" id="Standard" name="productLine" value="Standard">
 									   <label style="position:relative; bottom:6px; padding-bottom:5px;" for="Standard">Standard</label>
 									   <input style="float:left" type="radio" id="Premium" name="productLine" value="Premium">
@@ -163,87 +163,87 @@
                             <div class="row inputFields">
 								<div class="col-md-4 all residential">
 									<label for="residential:appartment">Number of apartments *</label><br>
-									<input required type="number" min="1" value="" class="form-control" name="appartment" id="appartment">
+									<input required type="number" min="1" value="0" class="form-control" name="appartment" id="appartment">
 								</div>
 
 								<div class="col-md-4 all residential commercial corporate hybrid">
 									<label for="residential:floor">Number of Floors(excluding basement) *</label>
-									<input required type="number" min="1" value="" class="form-control" name="floor" id="floor">
+									<input required type="number" min="1" value="0" class="form-control" name="floor" id="floor">
 								</div>
 
 								<div class="col-md-4 all residential commercial corporate hybrid">
 									<label for="residential:basement">Number of basements contained *</label><br>
-									<input required type="number" min="1" value="" class="form-control" name="residential[basement][required]" id="basement">
+									<input required type="number" min="1" value="0" class="form-control" name="residential[basement][required]" id="basement">
 								</div>
 							
 								
 							    <div class="col-md-4 all commercial hybrid">
 										<label for="commercial:business">Number of distinct businesses *</label><br>
-										<input required type="number" min="1" value="" class="form-control" name="commercial[name][required]" id="distinctBis">
+										<input required type="number" min="1" value="0" class="form-control" name="commercial[name][required]" id="distinctBis">
 								</div>
 
 								<div class="col-md-4 all commercial corporate hybrid">
 										<label for="commercial:parking">Number of parking space available *</label><br>
-										<input required type="number" min="1" value="" class="form-control" name="commercial[parking][required]" id="parking">
+										<input required type="number" min="1" value="0" class="form-control" name="commercial[parking][required]" id="parking">
 								</div>
 
 								<div class="col-md-4 all commercial" id="commercial">
 										<label for="commercial:cage">Number of elevator cages to be deployed *</label><br>
-										<input required type="number" min="1" value="" class="form-control" name="commercial[cage][required]" id="comCage">
+										<input required type="number" min="1" value="0" class="form-control" name="commercial[cage][required]" id="comCage">
 							    </div>
 
 								<div class="col-md-4 all corporate">
 									<label for="corporate:cage">Number of separate tenant companies *</label><br>
-									<input required type="number" min="1" value="" class="form-control" name="corporate[cage][required]" id="tenantTom">
+									<input required type="number" min="1" value="0" class="form-control" name="corporate[cage][required]" id="tenantTom">
 							    </div>
 
 								<div class="col-md-4 all corporate hybrid">
 									<label for="corporate:cage">Maximum number of occupants per floor *</label><br>
-									<input required type="number" min="1" value="" class="form-control" name="corporate[cage][required]" id="occPerFloor">
+									<input required type="number" min="1" value="0" class="form-control" name="corporate[cage][required]" id="occPerFloor">
 							    </div>
 
 								<div class="col-md-4 all corporate hybrid">
 									<label for="hybrid:cage">Number of hours of activity of the building*</label>
-									<input required type="number" min="1" value="" class="form-control" name="hybrid[cage][required]" id="hoursOfAct">
+									<input required type="number" min="1" value="0" class="form-control" name="hybrid[cage][required]" id="hoursOfAct">
 							    </div>
 
 
 						    </div>
 
                             
-							<div class="row allInput">
+							<div class="row displayFields">
 								<div class="col-md-12 col-sm-7">
 									<div class="col-md-16">
 										<label for="amountEle">Amount of elevators needed</label>
-										<input type="text" value="" class="form-control" name="amountEle" id="amountEle" readonly>
+										<input type="text" value="0" class="form-control" name="amountEle" id="amountEle" readonly>
 
 
 									</div><br>
 
 									<div class="col-md-16">
 										<label for="amountUni">Unit price of each elevator</label>
-										<input type="text" value="" class="form-control" name="amountUni" id="amountUni" readonly>
+										<input type="text" value="0" class="form-control" name="amountUni" id="amountUni" readonly>
 
 
 									</div><br>
 
 									<div class="col-md-16">
 										<label for="amountTot">Total price of the elevators</label>
-										<input type="text" value="" class="form-control" name="amountTot" id="amountTot" readonly>
+										<input type="text" value="0" class="form-control" name="amountTot" id="amountTot" readonly>
 
 
 									</div><br>
 
 									<div class="col-md-16">
 										<label for="amountIns">Installation fees</label>
-										<input type="text" value="" class="form-control" name="amountIns" id="amountIns" readonly>
+										<input type="text" value="0" class="form-control" name="amountIns" id="amountIns" readonly>
 
 
 									</div><br>
 
 									<div class="col-md-16">
 										<label for="amountFin">Final price, combining the price of the elevators and the installation fees</label>
-										<input type="text" value="" class="form-control" name="amountFin" id="amountFin" readonly>
+										<input type="text" value="0" class="form-control" name="amountFin" id="amountFin" readonly>
 
 
 									</div><br>
@@ -375,7 +375,7 @@
 		-->
 		<script src="//maps.google.com/maps/api/js?key=AIzaSyCqCn84CgZN6o1Xc3P4dM657HIxkX3jzPY"></script>
 		<script src="assets/plugins/gmaps.js"></script>
-        <script src="/Smarty/HTML_BS4/assets/js/interaction.js"></script>
+        <script src="assets/js/interaction.js"></script>
 		<!-- jquery mask upload -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.13.4/jquery.mask.min.js"></script>

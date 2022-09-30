@@ -1,59 +1,67 @@
 $( document ).ready(function() {
-
+    
     hideAll();
     initListeners();
-
+    
     // Percentage and unit price global variables
     let per = 0;
-    intPrice = [7565.00, 12345.00, 15400.00]
+    intPrice = [7565.00, 12345.00, 15400.00];
+    
 
     // Department selector
-    $("#select").change(function() {
-
+    $("#select").change( function() {
+        
         hideAll();
 
         // resets input fields when selector changes
-        $('input[type="number"]').val('');
+        $('input[type="number"]').val(0);
         
         // SwitchCase display appropriate input fields and calculation functions
         switch($(this).val()) {
             case "Residential":
                 $(".residential").show();
+                $(".radioSelect").show();
                 $("#appartment, #floor").on('input', function () {
-                    calculateResidential()
+                    calculateResidential();
                 
                 });
                 break;          
             case "Commercial":
                 $(".commercial").show();
+                $(".radioSelect").show();
                 $("#comCage").on('input', function () {
-                    calculateCommercial()
+                    calculateCommercial();
 
                 });
                 break;
             case "Corporate":
                 $(".corporate").show();
+                $(".radioSelect").show();
                 $("#floor, #occPerFloor, #basement").on('input', function (){
-                    calculateCorpoHybrid()
+                    calculateCorpoHybrid();
                 
                 });
                 break;
             case "Hybrid":
                 $(".hybrid").show();
+                $(".radioSelect").show();
                 $("#floor, #occPerFloor, #basement").on('input', function (){
-                    
+                    calculateCorpoHybrid();
                 
                 });
                 break;
             
         };
 
+
     });
 
     // function hides the HTML element that we don't need
     function hideAll() {
-        $(".allInput").hide();
+        
+        $(".displayFields").hide();
         $(".all").hide();
+        $(".radioSelect").hide();
         
     };
 
@@ -71,6 +79,7 @@ $( document ).ready(function() {
         $('#amountEle').val(getValue);
 
         var unitPrice = dollarStringToFloat($("#amountUni").val());
+
         var totalPrice = unitPrice * getValue;
         $("#amountTot").val(format(totalPrice));
 
@@ -85,102 +94,73 @@ $( document ).ready(function() {
     // Calculations for the Corporate and Hybrid part
     function calculateCorpoHybrid() {
         var occPerFloor = parseInt($("#occPerFloor").val());
-        console.log(occPerFloor);
-
         var floor = parseInt($('input[name="floor"]').val());
-        console.log(floor);
-
-        var basement = parseInt($("#basement").val());
-        console.log(basement);
-
-        var totalNumOfElevators;
-        if(floor <= 0 || isNaN(floor)) {
-            return $('input[type="text"]').val('');
-        } else {
+        var basement = parseInt($("#basement").val());      
             
-            var occupants = (basement + floor) * occPerFloor;
-            console.log(typeof occupants)
-            console.log("occupants :" + occupants);
-            var elevatorRequired = Math.floor(parseFloat(occupants) / 1000);
-            console.log("elevatorReq " + elevatorRequired); // 22 works
+        var occupants = (basement + floor) * occPerFloor;
+        var elevatorRequired = Math.floor(parseFloat(occupants) / 1000);
 
-            var columnsRequired = Math.ceil((parseInt(basement) + parseInt(floor)) / 20);
-            console.log("columns Req " + columnsRequired);
+        var columnsRequired = Math.ceil((parseInt(basement) + parseInt(floor)) / 20);
 
-            var elevatorPerColumn = Math.ceil(elevatorRequired / columnsRequired);
-            console.log("elevatorPerColumn :" + elevatorPerColumn);
+        var elevatorPerColumn = Math.ceil(elevatorRequired / columnsRequired);
 
-            var totalNumOfElevators = Math.ceil(parseInt(elevatorPerColumn) * parseInt(elevatorRequired));
-            console.log("total num of elevator :" + totalNumOfElevators);
+        var totalNumOfElevators = Math.ceil(parseInt(elevatorPerColumn) * parseInt(columnsRequired));
+        $("input[name=amountEle]").val(totalNumOfElevators);
 
-            // ERROR
-            $("input[name=amountEle]").val(totalNumOfElevators);
-            console.log(typeof $("input[name=amountEle]").val(totalNumOfElevators));
-            console.log($("input[name=amountEle]").val(totalNumOfElevators));
-            // ERROR
+        var unitPrice = dollarStringToFloat($("#amountUni").val());
 
-            var unitPrice = dollarStringToFloat($("#amountUni").val());
-            var totalPrice = unitPrice * totalNumOfElevators
-            $("#amountTot").val(format(totalPrice));
+        var totalPrice = unitPrice * totalNumOfElevators
+        $("#amountTot").val(format(totalPrice));
 
-            var installationFees = (totalPrice * per) / 100;
-            $('#amountIns').val(format(installationFees));
-            
-            var finalPrice = totalPrice + installationFees;
-            $('#amountFin').val(format(finalPrice));
+        var installationFees = (totalPrice * per) / 100;
+        $('#amountIns').val(format(installationFees));
+
+        var finalPrice = totalPrice + installationFees;
+        $('#amountFin').val(format(finalPrice));
 
         };
-
-    };
-    // standard elevator cost 68,085.00
-    // Calculations for the Residential part
-
-    
 
     function calculateResidential() {
         var getValue = $("#appartment").val();
         var floor = $('input[name="floor"]').val();
-        var numResEle;
-        if(floor <= 0 || isNaN(floor)) {
-            return $('input[type="text"]').val('');
-        } else {
-            var appFloor = Math.ceil((getValue / (floor * 6)));
-            var column = Math.ceil(floor / 20);
-            var numResEle = appFloor * column;
+        var appFloor = Math.ceil((getValue / (floor * 6)));
+        var column = Math.ceil(floor / 20);
+        var numResEle = appFloor * column;
         
+        $("#amountEle").val(numResEle);
 
-            $("#amountEle").val(numResEle);
+        var unitPrice = dollarStringToFloat($("#amountUni").val());
 
-            var unitPrice = dollarStringToFloat($("#amountUni").val());
-            var totalPrice = unitPrice * numResEle;
-            $("#amountTot").val(format(totalPrice));
+        var totalPrice = unitPrice * numResEle;
+        $("#amountTot").val(format(totalPrice));
 
-            var installationFees = (totalPrice * per) / 100;
-            $('#amountIns').val(format(installationFees));
+        var installationFees = (totalPrice * per) / 100;
+        $('#amountIns').val(format(installationFees));
 
-            var finalPrice = totalPrice + installationFees;
-            $('#amountFin').val(format(finalPrice));
+        var finalPrice = totalPrice + installationFees;
+        $('#amountFin').val(format(finalPrice));
             
         };
 
-    }
-    
     // Radio Selector function to display Unit price of each elevator
-    $('.radioSelect').change(function(){
+    $('.radioSelect').on('change', function(){
         selected_value = $("input[name='productLine']:checked").val();
-        $('input[type="text"]').val('')
-        $(".allInput").show();
+        $('input[type="text"]').val(0);
+        
 
         switch(selected_value) {
             case "Standard":
+                $(".displayFields").show();
                 per = 10
                 $("#amountUni").val(format(intPrice[0]));
                 break;
             case "Premium":
+                $(".displayFields").show();
                 per = 13
                 $("#amountUni").val(format(intPrice[1]));
                 break;
             case "Excelium":
+                $(".displayFields").show();
                 per = 16 
                 $("#amountUni").val(format(intPrice[2]));
                 break;
